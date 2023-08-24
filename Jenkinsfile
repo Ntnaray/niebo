@@ -9,7 +9,7 @@ pipeline {
         stage ('Checkout') {
             steps {
 
-                git branch: 'main', credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', url: 'https://github.com/Ntnaray/niebo_django.git'
+                git branch: 'main', credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', url: 'https://github.com/Ntnaray/niebo.git'
             }
         }
         stage ('Build Docker') {
