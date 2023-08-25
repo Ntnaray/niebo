@@ -1,7 +1,7 @@
 pipeline {
         agent any
         environment {
-            //IMAGE_TAG= "${BUILD_NUMBER}"
+            IMAGE_TAG= "${BUILD_NUMBER}"
             DOCKERHUB_CREDENTIALS = credentials ('swamy-docker-hub')
 
         }   
@@ -15,8 +15,8 @@ pipeline {
         stage ('Build Docker') {
             steps {
                 sh 'echo Build Docker image'
-                //sh 'docker build -t swamy877/cipipeline:${BUILD_NUMBER} .'
-                sh 'docker build -t swamy877/niebo:latest .'
+                sh 'docker build -t swamy877/cipipeline:${BUILD_NUMBER} .'
+                //sh 'docker build -t swamy877/niebo:latest .'
         }
         }
 
@@ -31,8 +31,8 @@ pipeline {
         stage ('Push to Repo') {
             steps {
                 sh 'echo "Push to Repo"'
-                //sh 'docker push swamy877/cipipeline:${BUILD_NUMBER}'
-                sh 'docker push swamy877/niebo:latest'
+                sh 'docker push swamy877/cipipeline:${BUILD_NUMBER}'
+                // sh 'docker push swamy877/niebo:latest'
         }
         }
 
