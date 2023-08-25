@@ -9,7 +9,7 @@ pipeline {
         stage ('Checkout') {
             steps {
 
-                git branch: 'main', credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', url: 'https://github.com/Ntnaray/niebo.git'
+                git branch: 'master', credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', url: 'https://github.com/Ntnaray/niebo.git'
             }
         }
         stage ('Build Docker') {
@@ -30,7 +30,7 @@ pipeline {
 
         stage ('Push to Repo') {
             steps {
-                sh 'Push to Repo'
+                sh 'echo "Push to Repo"'
                 //sh 'docker push swamy877/cipipeline:${BUILD_NUMBER}'
                 sh 'docker push swamy877/niebo:latest'
         }

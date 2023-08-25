@@ -1,8 +1,8 @@
 FROM python:3.7
 LABEL key="swamy877@gmail.com"
 USER root
-WORKDIR /home/swamy/
-COPY * /home/swamy/
+WORKDIR /home/swamy/niebo
+COPY . /home/swamy/niebo/
 RUN pwd && ls -lrta
 RUN pip3 install -r requirements.txt
 EXPOSE 8000
