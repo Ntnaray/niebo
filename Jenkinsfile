@@ -43,7 +43,7 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([usernamePassword(credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', passwordVariable: '', usernameVariable: '')]){
+                    withCredentials([usernamePassword(credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                         sh '''
                         cat deployment.yaml
                         sed -i '' "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
