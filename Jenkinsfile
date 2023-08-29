@@ -47,7 +47,7 @@ pipeline {
                         sh '''
                         git config --global user.email "swamy877@gmail.com"
                         git config --global user.name "ntnaray"
-                        sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
+                        sed -i "s/77/${BUILD_NUMBER}/g" deployment.yaml
                         cat deployment.yaml
                         git add deployment.yaml
                         git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
