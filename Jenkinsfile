@@ -46,7 +46,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                         sh '''
                         cat deployment.yaml
-                        sed -i '' "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
+                        sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
                         cat deployment.yaml
                         git add deployment.yaml
                         git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
