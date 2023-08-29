@@ -20,21 +20,21 @@ pipeline {
         }
         }
 
-        stage('Docker Login'){
-        steps {
-            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        // stage('Docker Login'){
+        // steps {
+        //     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
-        }
-        }
+        // }
+        // }
 
 
-        stage ('Push to Repo') {
-            steps {
-                sh 'echo "Push to Repo"'
-                sh 'docker push swamy877/cipipeline:${BUILD_NUMBER}'
-                // sh 'docker push swamy877/niebo:latest'
-        }
-        }
+        // stage ('Push to Repo') {
+        //     steps {
+        //         sh 'echo "Push to Repo"'
+        //         sh 'docker push swamy877/cipipeline:${BUILD_NUMBER}'
+        //         // sh 'docker push swamy877/niebo:latest'
+        // }
+        // }
         stage ('Checkout K8S manifest SCM') {
             steps {
              git branch: 'main', credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', url: 'https://github.com/Ntnaray/kube-manifest.git'   
@@ -47,13 +47,12 @@ pipeline {
                         sh '''
                         git config user.email "swamy877@gmail.com"
                         git config user.name "ntnaray"
-                        cat deployment.yaml
                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
                         cat deployment.yaml
                         git add deployment.yaml
                         git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
                         git remote -v
-                        git push https://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@github.com/Ntnaray/kube-manifest.git HEAD:main
+                        git push https://github.com/Ntnaray/kube-manifest.git' HEAD:main
                         '''                      
                     }
                 }
