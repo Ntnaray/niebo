@@ -35,6 +35,30 @@ pipeline {
                 // sh 'docker push swamy877/niebo:latest'
         }
         }
+        stage ('Checkout K8S manifest SCM') {
+            steps {
+             git branch: 'main', credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', url: 'https://github.com/Ntnaray/kube-manifest.git'   
+            }
+        }
+        stage('Update K8S manifest & push to Repo'){
+            steps {
+                script{
+                    withCredentials([usernamePassword(credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', passwordVariable: '', usernameVariable: '')]){
+                        sh '''
+                        cat deployment.yaml
+                        sed -i '' "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
+                        cat deployment.yaml
+                        git add deployment.yaml
+                        git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
+                        git remote -v
+                        git push https://github.com/Ntnaray/kube-manifest.git HEAD:main
+                        '''                      
+                    }
+                }
+            }
 
         }
        }
+
+
+
