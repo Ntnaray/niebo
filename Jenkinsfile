@@ -53,7 +53,7 @@ pipeline {
                         git add deployment.yaml
                         git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
                         git remote -v
-                        git push git@github.com:Ntnaray/kube-manifest.git HEAD:main
+                        git push https://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@github.com/Ntnaray/kube-manifest.git HEAD:main
                         '''                      
                     }
                 }
