@@ -59,6 +59,8 @@ pipeline {
             }
 
         }
+        post { deleteDir()}
+
        }
 
 }
