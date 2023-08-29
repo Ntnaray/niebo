@@ -47,13 +47,14 @@ pipeline {
                         sh '''
                         git config --global user.email "swamy877@gmail.com"
                         git config --global user.name "ntnaray"
+                        git config --global user.password "Divver123"
                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
                         cat deployment.yaml
                         git add deployment.yaml
                         git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
                         git remote -v
                         git status
-                        git push https://ntnaray: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@github.com/Ntnaray/kube-manifest.git main
+                        git push origin main
                         '''                      
                     }
                 }
