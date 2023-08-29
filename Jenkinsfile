@@ -45,6 +45,8 @@ pipeline {
                 script{
                     withCredentials([usernamePassword(credentialsId: '6120597c-372c-4107-b092-a73af23bdb18', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                         sh '''
+                        git config user.email "swamy877@gmail.com"
+                        git config user.name "ntnaray"
                         cat deployment.yaml
                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
                         cat deployment.yaml
