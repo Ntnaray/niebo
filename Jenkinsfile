@@ -53,7 +53,7 @@ pipeline {
                         git commit -m 'Updated the deployment yaml | Jenkins Pipeline'
                         git remote -v
                         git status
-                        git push origin main
+                        git push https://ntnaray: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@github.com/Ntnaray/kube-manifest.git main
                         '''                      
                     }
                 }
