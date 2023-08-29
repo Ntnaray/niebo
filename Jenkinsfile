@@ -14,7 +14,7 @@ pipeline {
         }
         stage ('Build Docker') {
             steps {
-                sh 'echo Build Docker image'
+                sh 'echo "Build Docker image"'
                 sh 'docker build -t swamy877/cipipeline:${BUILD_NUMBER} .'
                 //sh 'docker build -t swamy877/niebo:latest .'
         }
