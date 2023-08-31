@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'q)q1_p%&kmixpack7#e@ld8uis-tc6rr)h^3+(sc-=ocnym$h9'
+SECRET_KEY = 'q)q1_p%&kmixpack7#e@ld8uis-tc6rr)h^3+(sc-=ocnym$h9'
 
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -152,20 +152,20 @@ MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(os.environ.get('GS_MEDIA
 MEDIA_ROOT = "media/"
 
 # Adding the settings is very import and choosing the environ names
-GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
-GS_MEDIA_BUCKET_NAME = os.environ['GS_MEDIA_BUCKET_NAME']
-GOOGLE_APPLICATION_CREDENTIALS = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
+# GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
+# GS_MEDIA_BUCKET_NAME = os.environ['GS_MEDIA_BUCKET_NAME']
+# GOOGLE_APPLICATION_CREDENTIALS = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
 
 
 #Mapbox-GSL private and publick keys for accessing the maps data
-MAPBOX_PRIVATE_KEY = os.environ.get('MAPBOX_PRIVATE_KEY')
-MAPBOX_PUBLIC_KEY = os.environ.get('MAPBOX_PUBLIC_KEY')
+# MAPBOX_PRIVATE_KEY = os.environ.get('MAPBOX_PRIVATE_KEY')
+# MAPBOX_PUBLIC_KEY = os.environ.get('MAPBOX_PUBLIC_KEY')
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
+# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
 
 
 LOGIN_URL = '/'
